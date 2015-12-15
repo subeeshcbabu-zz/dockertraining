@@ -1,0 +1,5 @@
+FROM subeeshcbabu/nodebuild:latest
+
+EXPOSE 8000
+
+CMD ["node", "server.js"]
