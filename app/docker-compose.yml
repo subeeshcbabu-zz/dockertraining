@@ -1,0 +1,13 @@
+web:
+  image: nginx:1.9
+  ports:
+   - "8080:80"
+  links:
+   - nodeapp
+nodeapp:
+  build: .
+  ports:
+  - "15000:8000"
+  volumes:
+  - .:/src
+
