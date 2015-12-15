@@ -5,25 +5,20 @@
   "author": "subeeshcbabu",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test",
-    "build": "grunt build",
-    "all": "npm run build && npm run test"
+    "lint": "eslint lib",
+    "test": "mocha test",
+    "cover": "istanbul cover mocha test"
   },
   "dependencies": {
-    "kraken-js": "^1.0.3",
     "construx": "^1.0.0",
     "construx-copier": "^1.0.0",
-    "express": "^4.12.2"
+    "express": "^4.12.2",
+    "kraken-js": "^1.0.3"
   },
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-config-dir": "^0.3.2",
-    "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-copy-to": "0.0.10",
-    "grunt-mocha-cli": "^1.14.0",
     "mocha": "^1.18.0",
-    "supertest": "^0.9.0"
+    "supertest": "^0.9.0",
+    "eslint": "^1.8.0",
+    "istanbul": "^0.4.0"
   }
 }
