@@ -1,0 +1,26 @@
+FROM centos:centos6
+
+# Extra system level packages
+RUN yum install -y epel-release && \
+	yum install -y tar
+
+# Install node and NPM
+
+ENV NODE_VERSION 4.2.3
+ENV NPM_VERSION 3.3.12
+
+RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
+	&& tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
+	&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" \
+	&& npm install -g npm@"$NPM_VERSION" \
+	&& npm cache clear
+
+ENV WORKSPACE src
+ENV PATH "/bin/:$PATH"
+WORKDIR $WORKSPACE
+
+# App level changes go here
+
+#
+
+CMD [ "node", "server.js" ]
